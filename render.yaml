@@ -7,6 +7,8 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn -w 1 -b 0.0.0.0:$PORT run:app
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
       - key: FLASK_DEBUG
         value: "false"
       - key: ALLOWED_ORIGINS
