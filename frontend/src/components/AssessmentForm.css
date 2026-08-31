@@ -1,0 +1,117 @@
+.assess-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.assess-progress-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.assess-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--signal), var(--signal-glow));
+  transition: width 0.25s var(--ease-out);
+}
+.assess-progress-label {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.assess-section {
+  border: none;
+  margin: 0 0 32px;
+  padding: 0;
+}
+.assess-section:not(:last-of-type) {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.assess-section legend {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal-deep);
+  margin-bottom: 18px;
+  padding: 0;
+}
+
+.assess-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+
+.field-help {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.field input,
+.field select {
+  padding: 12px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper-sunken);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field select { font-family: var(--font-body); }
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--signal);
+  background: var(--paper-raised);
+  box-shadow: 0 0 0 3px var(--signal-tint);
+  outline: none;
+}
+
+.field input.invalid {
+  border-color: var(--amber);
+}
+
+.field-error {
+  color: var(--amber);
+  font-size: 0.78rem;
+  margin-top: 5px;
+}
+
+.assess-submit {
+  margin-top: 8px;
+  width: 100%;
+  padding: 16px 22px;
+  font-size: 1rem;
+}
+.assess-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 560px) {
+  .assess-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,15 @@
+{
+  "short_name": "MediSense AI",
+  "name": "MediSense AI - AI-Assisted Health Screening",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#081321",
+  "background_color": "#F5F7FA"
+}

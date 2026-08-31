@@ -1,0 +1,37 @@
+.assess-dash-header {
+  position: relative;
+  background: radial-gradient(120% 140% at 85% -10%, #12283A 0%, var(--ink) 55%), var(--ink);
+  padding: 64px 0 44px;
+  overflow: hidden;
+}
+
+.assess-dash-header-inner { position: relative; max-width: 680px; }
+
+.assess-dash-header h1 { color: var(--text-on-ink); margin-bottom: 0.4em; }
+
+.assess-dash-lede {
+  color: var(--text-on-ink-muted);
+  font-size: 1.02rem;
+  max-width: 560px;
+  margin-bottom: 26px;
+}
+
+.assess-dash-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.assess-dash-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-on-ink-muted);
+  font-size: 0.86rem;
+}
+.assess-dash-stat svg { color: var(--signal-glow); flex-shrink: 0; }
+.assess-dash-stat strong { color: var(--text-on-ink); font-family: var(--font-mono); font-weight: 600; }
+
+.assess-dash-body { padding: 48px 24px 104px; }

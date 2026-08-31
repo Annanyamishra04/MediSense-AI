@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: anvara-health-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -b 0.0.0.0:$PORT run:app
+    envVars:
+      - key: FLASK_DEBUG
+        value: "false"
+      - key: ALLOWED_ORIGINS
+        sync: false

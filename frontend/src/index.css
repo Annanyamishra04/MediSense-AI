@@ -1,0 +1,198 @@
+:root {
+  /* ---------------------------------------------------------------- */
+  /* Anvara Health design tokens                                      */
+  /* Palette: a cool clinical-navy ground with a signal teal/cyan for  */
+  /* "active AI" moments and a restrained amber-brick for attention.   */
+  /* ---------------------------------------------------------------- */
+  --ink: #081321;              /* near-black navy — headings, dark surfaces */
+  --ink-soft: #16283C;         /* secondary dark surface */
+  --paper: #F5F7FA;            /* app background — cool, not cream */
+  --paper-raised: #FFFFFF;     /* card surface */
+  --paper-sunken: #EEF2F6;     /* inset / input backgrounds */
+  --line: #E1E7EE;
+  --line-strong: #C7D1DC;
+
+  --signal: #0E7C86;           /* primary brand — deep clinical teal */
+  --signal-deep: #0A5B63;
+  --signal-tint: #E4F3F2;
+  --signal-glow: #5EEAD4;      /* luminous mint — used sparingly for AI accents */
+
+  --amber: #B5480C;            /* attention / positive-finding tone */
+  --amber-deep: #8C380A;
+  --amber-tint: #FBEAE0;
+
+  --text-primary: #0F1B2A;
+  --text-muted: #59677A;
+  --text-faint: #8695A7;
+  --text-on-ink: #E8EDF3;
+  --text-on-ink-muted: #9DAEC2;
+
+  --font-display: "Space Grotesk", "Inter", -apple-system, sans-serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --max-width: 1180px;
+
+  --shadow-card: 0 1px 2px rgba(8, 19, 33, 0.04), 0 8px 24px rgba(8, 19, 33, 0.06);
+  --shadow-raised: 0 4px 12px rgba(8, 19, 33, 0.08), 0 16px 40px rgba(8, 19, 33, 0.10);
+  --shadow-glow: 0 0 0 1px rgba(94, 234, 212, 0.16), 0 0 32px rgba(94, 234, 212, 0.14);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.4rem, 4.6vw, 3.8rem); font-weight: 600; letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); }
+h3 { font-size: 1.25rem; }
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--signal-deep);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+button, input, select {
+  font-family: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background-color 0.18s var(--ease-out), border-color 0.18s var(--ease-out),
+    transform 0.15s var(--ease-out), box-shadow 0.18s var(--ease-out), color 0.18s var(--ease-out);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--signal);
+  color: white;
+  box-shadow: 0 1px 2px rgba(8,19,33,0.08), 0 8px 20px rgba(14, 124, 134, 0.28);
+}
+.btn-primary:hover { background: var(--signal-deep); text-decoration: none; box-shadow: 0 1px 2px rgba(8,19,33,0.1), 0 10px 26px rgba(14, 124, 134, 0.36); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover { background: var(--paper-raised); text-decoration: none; border-color: var(--ink); }
+
+.btn-sm { padding: 9px 16px; font-size: 0.86rem; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--signal-deep);
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  margin-right: 8px;
+}
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+/* Subtle dotted "data field" background, used behind hero + section headers */
+.bg-grid {
+  background-image: radial-gradient(rgba(232, 237, 243, 0.5) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

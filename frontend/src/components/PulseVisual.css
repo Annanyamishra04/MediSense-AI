@@ -1,0 +1,122 @@
+.pulse-visual {
+  width: 100%;
+  color: var(--signal-glow);
+  position: relative;
+}
+
+.pulse-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.pv-grid circle {
+  fill: rgba(232, 237, 243, 0.14);
+}
+
+.pv-waveform {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation: pv-draw 1.6s var(--ease-out) forwards;
+  filter: drop-shadow(0 0 6px rgba(94, 234, 212, 0.35));
+}
+
+.pv-edges line {
+  stroke: rgba(94, 234, 212, 0.4);
+  stroke-width: 1.2;
+  opacity: 0;
+  animation: pv-fade-in 0.6s ease forwards;
+}
+
+.pv-nodes g {
+  opacity: 0;
+  animation: pv-fade-in 0.6s ease forwards;
+}
+
+.pv-node-dot {
+  fill: var(--signal-glow);
+  animation: pv-blink 3.4s ease-in-out infinite;
+}
+
+.pv-ambient {
+  opacity: 0;
+  animation: pv-fade-in 1.2s ease 0.3s forwards;
+}
+
+.pv-orbit {
+  opacity: 0;
+  animation: pv-fade-in 0.8s ease 1s forwards, pv-spin 22s linear infinite;
+}
+
+.pv-orbit-dot {
+  fill: var(--signal-glow);
+  filter: drop-shadow(0 0 4px rgba(94, 234, 212, 0.7));
+}
+
+.pv-panel {
+  position: absolute;
+  left: 6%;
+  bottom: 6%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-on-ink-muted);
+  opacity: 0;
+  animation: pv-fade-in 0.7s ease 1.9s forwards, pv-float 5s ease-in-out 2.6s infinite;
+}
+
+.pv-panel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal-glow);
+  box-shadow: 0 0 6px rgba(94, 234, 212, 0.8);
+  animation: pv-blink 2s ease-in-out infinite;
+}
+
+@keyframes pv-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pv-fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes pv-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@keyframes pv-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Smaller, quieter variant used as an inline section divider */
+.pulse-visual--divider {
+  max-width: 220px;
+  opacity: 0.7;
+}
+.pulse-visual--divider .pv-grid { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-waveform { animation: none; stroke-dashoffset: 0; }
+  .pv-edges line, .pv-nodes g { animation: none; opacity: 1; }
+  .pv-node-dot { animation: none; }
+  .pv-ambient { animation: none; opacity: 1; }
+  .pv-orbit { animation: none; opacity: 1; }
+  .pv-panel { animation: none; opacity: 1; }
+  .pv-panel-dot { animation: none; }
+}
