@@ -4,7 +4,7 @@ An end-to-end ML portfolio project: four disease-risk screening models (diabetes
 
 **Educational prototype, not a medical device.** See [Medical Disclaimer](#medical-disclaimer).
 
-## 🔗 https://medi-sense-ai-indol.vercel.app/
+##  https://medi-sense-ai-indol.vercel.app/
 
 - **Frontend:** [Add your Vercel link here]
 - **Backend API:** [Add your Render link here]
